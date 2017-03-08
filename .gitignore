@@ -1,0 +1,5 @@
+# ignore token files
+*.token
+
+# ignore bundle
+.bundle/
