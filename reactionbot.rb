@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'slack-ruby-bot'
-require 'redis'
-
-SlackRubyBot::Client.logger.level = Logger::WARN
+require 'reaction-bot/commands/add'
+require 'reaction-bot/commands/remove'
+require 'reaction-bot/commands/help'
+require 'reaction-bot/bot'
 
 class ReactionBot < SlackRubyBot::Bot
   class_attribute :data_store
@@ -44,28 +45,7 @@ class ReactionBot < SlackRubyBot::Bot
     end
   end
 
-  # Commands
-  command 'add' do |client, data, match|
-    params = match[:expression]
-    if !params.empty?
-      trigger, link = match[:expression].split
-
-      # Debug
-      client.say(channel: data.channel, text: "The trigger is #{trigger}, the link is #{link}")
-    else
-      client.say(channel: data.channel, text: "Missing parameters, see 'help add' for usage")
-    end
-  end
-
-  command 'remove' do |client, data, match|
-    trigger = match[:expression]
-    if !trigger.empty?
-      # Debug
-      client.say(channel: data.channel, text: "The trigger is #{trigger}")
-    else
-      client.say(channel: data.channel, text: "Missing parameter, see 'help remove' for usage")
-    end
-  end
+  # Commands  
 
   command 'debug' do |client, data, match|
     client.web_client.chat_postMessage(
