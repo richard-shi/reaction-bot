@@ -1,14 +1,10 @@
 #!/usr/bin/env ruby
-
-require 'redis'
-
 module ReactionBot
   module Commands
     # Removes keyvalue pair from data store
     class Remove < SlackRubyBot::Commands::Base
       command 'remove' do |client, data, match|
-        trigger = match[:expression]
-        if !trigger.empty?
+        if match[:expression]
           # Debug
           client.say(channel: data.channel, text: "The trigger is #{trigger}")
         else
