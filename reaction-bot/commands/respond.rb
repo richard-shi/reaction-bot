@@ -9,9 +9,9 @@ module ReactionBot
 
       
       # Note: the match in scan is an array of MatchData objects
-      scan(/([A-Z]{2,5}+)/) do |client, data, match|
-        client.say(channel: data.channel, text: "Type of match is #{match.class}")
-      end
+      #scan(/([A-Z]{2,5}+)/) do |client, data, match|
+      #  client.say(channel: data.channel, text: "Type of match is #{match.class}")
+      #end
     end
   end
 end
