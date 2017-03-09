@@ -1,5 +1,8 @@
 # ignore env file
-env
+.env
 
 # ignore bundle
 .bundle/
+
+# ignore temp emacs files
+.#*
