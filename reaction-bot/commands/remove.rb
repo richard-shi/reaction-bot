@@ -10,11 +10,12 @@ module ReactionBot
           trigger = match[:expression]
           if trigger
             ReactionBot::Data::Datastore.remove(trigger)
+            client.say(channel: data.channel, text: "Successfully removed image for trigger word #{trigger}")
           else
-            client.say(channel: data.channel, text: 'Error: Missing <link> or <trigger>')
+            client.say(channel: data.channel, text: 'Error: Missing <image> or <trigger>')
           end
         else
-          client.say(channel: data.channel, text: 'Error: No <trigger> or <link>')
+          client.say(channel: data.channel, text: 'Error: No <trigger> or <image> given')
         end
       end
     end

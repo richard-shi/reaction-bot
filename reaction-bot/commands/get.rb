@@ -19,11 +19,15 @@ module ReactionBot
         if match[:expression]
           keyword = match[:expression]
           url = ReactionBot::Data::Datastore.get(keyword)
-          client.web_client.chat_postMessage(
-            channel: data.channel,
-            as_user: true,
-            attachments: encapsulate_in_json(url)
-          )
+          if !url.nil?
+            client.web_client.chat_postMessage(
+              channel: data.channel,
+              as_user: true,
+              attachments: encapsulate_in_json(url)
+            )
+          else
+            client.say(channel: data.channel, text: "Error: Did not find image for word #{trigger}")
+          end
         else
           client.say(channel: data.channel, text: 'Error: No <trigger>')
         end
