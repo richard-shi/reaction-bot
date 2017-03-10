@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+
+# For HTML unescaping
+require 'cgi'
+
 module ReactionBot
   module Commands
     # Adds key values to data store
@@ -8,7 +12,7 @@ module ReactionBot
       # Extracts full URL string from Slacks formatted URL
       def self.extract_url(text_url)
         # text_url.gsub!(/\\u([a-f0-9]{4,5})/i){ [$1.hex].pack('U') }
-        /<(?<url>[^>\|]+)(?:\|([^>]+))?>/.match(text_url)[:url]
+        CGI.unescapeHTML(/<(?<url>[^>\|]+)(?:\|([^>]+))?>/.match(text_url)[:url])
       end
 
       def self.call(client, data, match)
