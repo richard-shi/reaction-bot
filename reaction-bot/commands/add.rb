@@ -22,10 +22,10 @@ module ReactionBot
             ReactionBot::Data::Datastore.add(trigger, extract_url(link))
             client.say(channel: data.channel, text: "Successfully added URL for trigger word #{trigger}")
           else
-            client.say(channel: data.channel, text: 'Error: Missing <link> or <trigger>')
+            client.say(channel: data.channel, text: "Error: Hey, you're missing a reaction <image> link for me to post.")
           end
         else
-          client.say(channel: data.channel, text: 'Error: No <trigger> or <link>')
+          client.say(channel: data.channel, text: 'Error: Please give me a <trigger> word and a <image> link.')
         end
       end
     end

@@ -10,6 +10,15 @@ module ReactionBot
 
       DATA_STORE = ENV['DATA_STORE_ID']
 
+      def self.can_connect?
+        test_client = Redis.new
+        test_client.ping
+        return true
+      rescue Errno::ECONNREFUSED => e
+        puts "Error: Could not connect to database server: #{e}"
+        return false
+      end
+
       def self.add(key, value)
         self.shared_client ||= Redis.new
         shared_client.hset(DATA_STORE, key, value)
