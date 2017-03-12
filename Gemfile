@@ -1,8 +1,8 @@
 source "https://rubygems.org"
+ruby '2.2.6'
 
 gem 'celluloid-io'
 gem 'dotenv'
-gem 'multi_json'
 gem 'puma'
 gem 'redis', '~>3.2'
 gem 'sinatra'
