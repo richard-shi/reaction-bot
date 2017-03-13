@@ -10,10 +10,13 @@ module ReactionBot
         key_list = ReactionBot::Data::Datastore.keys
 
         # List all trigger word keys
-        client.say(channel: data.channel, text: "Added trigger words:\n")
+        trigger_list = "Trigger word list: \n"
         key_list.each do |key|
-          client.say(channel: data.channel, text: key)
+          trigger_list += "#{key}\n"
         end
+
+        # Send message
+        client.say(channel: data.channel, text: trigger_list)
       end
     end
   end
