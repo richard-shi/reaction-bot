@@ -18,7 +18,7 @@ module ReactionBot
       def self.call(client, data, match)
         if match[:expression]
           keyword = match[:expression]
-          url = ReactionBot::Data::Datastore.get(keyword)
+          url = ReactionBot::Data::Datastore.get(client.team.name, keyword)
           if !url.nil?
             client.web_client.chat_postMessage(
               channel: data.channel,

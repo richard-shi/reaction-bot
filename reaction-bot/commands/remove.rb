@@ -9,7 +9,7 @@ module ReactionBot
         if match[:expression]
           trigger = match[:expression]
           if trigger
-            ReactionBot::Data::Datastore.remove(trigger)
+            ReactionBot::Data::Datastore.remove(client.team.name, trigger)
             client.say(channel: data.channel, text: "Successfully removed image for trigger word #{trigger}")
           else
             client.say(channel: data.channel, text: 'Error: Missing <image> or <trigger>')

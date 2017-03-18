@@ -14,7 +14,7 @@ module ReactionBot
 
       scan(/(?<key>:\S+:)/) do |client, data, matches|
         matches.each do |match|
-          url = ReactionBot::Data::Datastore.get(match[0])
+          url = ReactionBot::Data::Datastore.get(client.team.name, match[0])
           next if url.nil?
           client.web_client.chat_postMessage(
             channel: data.channel,
