@@ -6,3 +6,6 @@
 
 # ignore temp emacs files
 .#*
+
+# ignore pidfiles
+*.pid
