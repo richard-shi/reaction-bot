@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'require_all'
 gem 'celluloid-io'
 gem 'dotenv'
 gem 'puma'

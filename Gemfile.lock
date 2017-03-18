@@ -52,6 +52,7 @@ GEM
       rack (>= 1.0)
     rake (12.0.0)
     redis (3.3.3)
+    require_all (1.4.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -102,6 +103,7 @@ DEPENDENCIES
   rack-test
   rake
   redis (~> 3.2)
+  require_all
   rspec
   sinatra
   slack-ruby-bot
