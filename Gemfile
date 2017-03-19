@@ -7,6 +7,7 @@ gem 'puma'
 gem 'redis', '~>3.2'
 gem 'sinatra'
 gem 'slack-ruby-bot'
+gem 'pry-remote'
 
 group :development, :test do
   gem 'foreman'
