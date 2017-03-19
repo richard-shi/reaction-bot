@@ -6,11 +6,10 @@ module Commands
     command 'say'
 
     def self.get_channel_id(channel_name)
-      /<#(?<id>[^>\|]+)(?:\|([^>]+))?>/.match(channel_name)[:id]     
+      /<[#@](?<id>[^>\|]+)(?:\|([^>]+))?>/.match(channel_name)[:id]     
     end
 
     def self.call(client, data, match)
-      client.say(channel: data.channel, text: 'Note: Channel name needs a \# at the beginning')
       channel_name, text = match[:expression].split(" ", 2)
       channel_id = get_channel_id(channel_name)
       #channel_id = (client.web_client.channels_info(channel: channel_name)["channel"])["id"]
