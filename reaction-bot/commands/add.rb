@@ -17,10 +17,12 @@ module ReactionBot
 
       def self.call(client, data, match)
         if match[:expression]
-          trigger, link = match[:expression].split # use regex to match?
+          params = match[:expression].rpartition(' ')
+          trigger = params.first
+          link = params.last
           if !trigger.nil? && !link.nil?
-            Data::WordList.add(client.team.name, trigger, extract_url(link))
-            client.say(channel: data.channel, text: "Successfully added image for trigger word #{trigger}")
+            Respond.add_to_matches(client.team.name, trigger, extract_url(link))
+            client.say(channel: data.channel, text: "Successfully added image for trigger '#{trigger}'")
           else
             client.say(channel: data.channel, text: "Error: Hey, you're missing a reaction <image> link for me to post.")
           end
