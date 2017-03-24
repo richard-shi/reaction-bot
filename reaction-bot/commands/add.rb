@@ -19,7 +19,7 @@ module ReactionBot
         if match[:expression]
           trigger, link = match[:expression].split # use regex to match?
           if !trigger.nil? && !link.nil?
-            ReactionBot::Data::Datastore.add(client.team.name, trigger, extract_url(link))
+            Data::WordList.add(client.team.name, trigger, extract_url(link))
             client.say(channel: data.channel, text: "Successfully added image for trigger word #{trigger}")
           else
             client.say(channel: data.channel, text: "Error: Hey, you're missing a reaction <image> link for me to post.")

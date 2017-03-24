@@ -10,7 +10,7 @@ module ReactionBot
 
       scan(/(?<key>:\S+:)/) do |client, data, matches|
         matches.each do |match|
-          url = Data::Datastore.get(client.team.name, match[0])
+          url = Data::WordList.get(client.team.name, match[0])
           next if url.nil?
           client.web_client.chat_postMessage(
             channel: data.channel,
