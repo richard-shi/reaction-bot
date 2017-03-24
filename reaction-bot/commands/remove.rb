@@ -6,14 +6,9 @@ module ReactionBot
       command 'remove'
 
       def self.call(client, data, match)
-        if match[:expression]
-          trigger = match[:expression]
-          if trigger
-            Data::WordList.remove(client.team.name, trigger)
+        if trigger = match[:expression]
+          Data::WordList.remove(client.team.name, trigger)
             client.say(channel: data.channel, text: "Successfully removed image for trigger word #{trigger}")
-          else
-            client.say(channel: data.channel, text: 'Error: Missing <image> or <trigger>')
-          end
         else
           client.say(channel: data.channel, text: 'Error: No <trigger> or <image> given')
         end
