@@ -7,7 +7,7 @@ module ReactionBot
       command 'list'
 
       def self.call(client, data, match)
-        key_list = Data::WordList.words(client.team.name)
+        key_list = Data::WordList.words(client.team.name).sort
 
         # List all trigger word keys
         trigger_list = "```Trigger word list: \n"
