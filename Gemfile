@@ -1,13 +1,15 @@
 source "https://rubygems.org"
 
-gem 'require_all'
+gem 'activerecord'
+gem 'otr-activerecord'
 gem 'celluloid-io'
 gem 'dotenv'
+gem 'pry-remote'
 gem 'puma'
 gem 'redis', '~>3.2'
+gem 'require_all'
 gem 'sinatra'
 gem 'slack-ruby-bot'
-gem 'pry-remote'
 
 group :development, :test do
   gem 'foreman'
