@@ -3,4 +3,4 @@
 require 'slack-ruby-bot'
 require 'require_all'
 
-require_all 'reaction-bot'
+require_all 'app/reaction-bot'

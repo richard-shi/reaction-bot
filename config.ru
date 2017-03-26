@@ -3,8 +3,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'dotenv'
 Dotenv.load
 
-require 'reaction-bot'
-require 'web'
+require_relative './app/reaction-bot'
+require_relative './app/web'
 
 Thread.abort_on_exception = true
 

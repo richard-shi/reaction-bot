@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
 gem 'activerecord'
-gem 'otr-activerecord'
 gem 'celluloid-io'
 gem 'dotenv'
 gem 'pry-remote'
