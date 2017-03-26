@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'pg'
 gem 'activerecord'
 gem 'celluloid-io'
 gem 'dotenv'
