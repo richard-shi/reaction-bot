@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+gem 'pg'
+gem 'activerecord', require: 'active_record'
+gem 'otr-activerecord'
+gem 'slack-ruby-bot-server'
+
 gem 'require_all'
 #gem 'celluloid-io'
 
