@@ -6,7 +6,6 @@ gem 'require_all'
 gem 'eventmachine'
 gem 'faye-websocket'
 
-gem 'standalone_migrations'
 
 gem 'dotenv'
 gem 'puma'
@@ -16,6 +15,7 @@ gem 'slack-ruby-bot'
 gem 'pry-remote'
 
 group :development, :test do
+  gem 'standalone_migrations'
   gem 'foreman'
   gem 'rake'
 end
