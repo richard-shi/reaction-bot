@@ -1,0 +1,8 @@
+# config/database.yml
+
+development:
+  adapter: postgresql
+  host: localhost
+  username: user
+  encoding: utf-8
+  database: app-dev
