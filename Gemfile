@@ -1,7 +1,13 @@
 source "https://rubygems.org"
 
 gem 'require_all'
-gem 'celluloid-io'
+#gem 'celluloid-io'
+
+gem 'eventmachine'
+gem 'faye-websocket'
+
+gem 'standalone_migrations'
+
 gem 'dotenv'
 gem 'puma'
 gem 'redis', '~>3.2'
